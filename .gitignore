@@ -2,3 +2,4 @@
 .config/nvim/plugged
 .config/iterm2
 .config/configstore
+.config/coc
