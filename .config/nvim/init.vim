@@ -206,6 +206,23 @@ end
 EOF
 """ nvim-lspconfig config end
 
+" C/C++ setup
+lua <<EOF
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
+}
+require'lspconfig'.ccls.setup{}
+EOF
+
 "auto-close config
 lua <<EOF
 require('nvim-autopairs').setup{}
