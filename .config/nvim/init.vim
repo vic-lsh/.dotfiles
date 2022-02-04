@@ -102,8 +102,6 @@ let g:clang_format#auto_format=1
 
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
-" YCM configs
-set completeopt-=preview " remove preview window when tabbing autocomplete
 
 " ctrl-p config
 let g:ctrlp_use_caching=0
