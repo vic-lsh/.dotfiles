@@ -1,4 +1,5 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "languageserver": {
         "ccls": {
             "command": "ccls",
@@ -14,5 +15,6 @@
                 "highlight": { "lsRanges" : true }
             } 
         }
-    }
+    },
+    "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer"
 }
