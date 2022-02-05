@@ -29,7 +29,6 @@ highlight StatusLineNC ctermbg=248 ctermfg=235 guibg=darkgrey
 highlight VertSplit cterm=NONE ctermfg=250
 
 highlight Comment ctermfg=grey
-highlight CocHintSign ctermfg=grey      " chante type hinting color in coc.nvim
 
 " list of plugins. using vimplug
 call plug#begin("~/.config/nvim/plugged")
