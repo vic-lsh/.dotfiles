@@ -13,14 +13,14 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set signcolumn=yes
+set colorcolumn=80
 
 " jsonc syntax highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 highlight clear SignColumn
 
-highlight ColorColumn ctermbg=235 guibg=lightgrey
-highlight ColorColumn ctermbg=235 guibg=lightgrey
+highlight ColorColumn ctermbg=233 guibg=lightgrey
 
 " configure status bar
 set laststatus=2 " always show file name
