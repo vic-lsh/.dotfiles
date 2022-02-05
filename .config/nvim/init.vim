@@ -36,6 +36,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'       "for git blame and stuff
 Plug 'jremmen/vim-ripgrep'
 
+Plug 'dstein64/vim-startuptime'
+
+Plug 'airblade/vim-gitgutter'
+
 " C/C++
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
