@@ -15,6 +15,8 @@ set incsearch
 set signcolumn=yes
 set colorcolumn=80
 
+set wildignore+=*.o
+
 " jsonc syntax highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
