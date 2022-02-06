@@ -14,6 +14,7 @@ set undofile
 set incsearch
 set signcolumn=yes
 set colorcolumn=80
+set noshowmode  " no -- INSERT -- because of a fancier status bar
 
 set wildignore+=*.o
 
@@ -41,6 +42,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'dstein64/vim-startuptime'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 
 " C/C++
 Plug 'rhysd/vim-clang-format'
@@ -94,6 +96,16 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 let mapleader=" "
 
@@ -107,7 +119,6 @@ let g:clang_format#detect_style_file=1
 let g:clang_format#auto_format=1
 
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
-
 
 " ctrl-p config
 let g:ctrlp_use_caching=0
