@@ -14,6 +14,9 @@ set undofile
 set incsearch
 set signcolumn=yes
 set colorcolumn=80
+set noshowmode  " no -- INSERT -- because of a fancier status bar
+
+set wildignore+=*.o
 
 " jsonc syntax highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -35,6 +38,11 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'       "for git blame and stuff
 Plug 'jremmen/vim-ripgrep'
+
+Plug 'dstein64/vim-startuptime'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 
 " C/C++
 Plug 'rhysd/vim-clang-format'
@@ -88,6 +96,16 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 let mapleader=" "
 
@@ -101,7 +119,6 @@ let g:clang_format#detect_style_file=1
 let g:clang_format#auto_format=1
 
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
-
 
 " ctrl-p config
 let g:ctrlp_use_caching=0
@@ -129,7 +146,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Code navigation shortcuts
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
