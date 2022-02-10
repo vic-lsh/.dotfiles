@@ -275,6 +275,28 @@ lua <<EOF
 require('nvim-autopairs').setup{}
 EOF
 
+" Telescope configuration
+lua << EOF
+require('telescope').setup{
+    file_ignore_patterns = {
+        "./node_modules/*",
+        "node_modules",
+        "^node_modules/*",
+        "node_modules/*",
+        ".git/",
+        ".cache",
+        "%.o",
+        "%.a",
+        "%.out",
+        "%.class",
+        "%.pdf",
+        "%.mkv",
+        "%.mp4",
+        "%.zip"
+    },
+}
+EOF
+
 " Nvim-tree configurations
 lua <<EOF
 -- following options are the default
