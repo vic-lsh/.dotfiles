@@ -48,6 +48,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 " File tree stuff
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
