@@ -74,14 +74,15 @@ let g:clang_format#auto_format=1
 
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
-" ctrl-p config
-let g:ctrlp_use_caching=0
-
 " ctrl-w wincmd remaps
 nnoremap <leader>h :wincmd h<CR>    
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader><Left> :wincmd h<CR>    
+nnoremap <leader><Down> :wincmd j<CR>
+nnoremap <leader><Up> :wincmd k<CR>
+nnoremap <leader><Right> :wincmd l<CR>
 
 " remap for showing undo tree
 nnoremap <leader>u :UndotreeShow<CR>
