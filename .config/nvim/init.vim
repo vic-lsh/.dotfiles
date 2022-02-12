@@ -110,6 +110,10 @@ nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> rn    <cmd>lua vim.lsp.buf.rename()<CR>
 
+" quickly switch between source / header file (C/C++)
+nnoremap <leader>a :A<CR>
+nnoremap <silent> <c-a> :A<CR>
+
 nnoremap <C-n> :NvimTreeToggle<CR>
 
 " Ignore files (for ctrl-p, among other things)

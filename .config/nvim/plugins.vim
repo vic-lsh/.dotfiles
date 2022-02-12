@@ -12,6 +12,7 @@ Plug 'itchyny/lightline.vim'
 " C/C++
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-scripts/a.vim'  " header-source file switch
 
 " File tree stuff
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
