@@ -37,6 +37,7 @@ source $HOME/.config/nvim/plugins.vim
 
 lua require('lsp_config')
 lua require('nvimtree_config')
+lua require('telescope_config')
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -178,26 +179,3 @@ EOF
 lua <<EOF
 require('nvim-autopairs').setup{}
 EOF
-
-" Telescope configuration
-lua << EOF
-require('telescope').setup{
-    file_ignore_patterns = {
-        "./node_modules/*",
-        "node_modules",
-        "^node_modules/*",
-        "node_modules/*",
-        ".git/",
-        ".cache",
-        "%.o",
-        "%.a",
-        "%.out",
-        "%.class",
-        "%.pdf",
-        "%.mkv",
-        "%.mp4",
-        "%.zip"
-    },
-}
-EOF
-
