@@ -16,8 +16,8 @@ set signcolumn=yes
 set colorcolumn=80
 set noshowmode  " no -- INSERT -- because of a fancier status bar
 
-# case-insensitive search when /lowercase
-# case-sensitive search when /ContainsUppercase
+" case-insensitive search when /lowercase
+" case-sensitive search when /ContainsUppercase
 set ignorecase
 set smartcase
 
