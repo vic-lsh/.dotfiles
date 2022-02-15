@@ -29,6 +29,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 highlight clear SignColumn
 
 highlight ColorColumn ctermbg=233 guibg=lightgrey
+" change color of popup menu
+highlight Pmenu ctermbg=black guibg=black guifg=white ctermfg=white
 
 " configure status bar
 set laststatus=2 " always show file name
