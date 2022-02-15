@@ -8,6 +8,7 @@ Plug 'dstein64/vim-startuptime'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
 
 " C/C++
 Plug 'rhysd/vim-clang-format'
