@@ -56,7 +56,7 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'colorscheme': 'powerlineish',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
