@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 11
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.93
+  opacity: 0.8
 
   # Startup Mode (changes require restart)
   #
@@ -189,7 +189,6 @@ colors:
     magenta: '#a47de9'
     cyan:    '#99faf2'
     white:   '#ffffff'
-
 
   # Cursor colors
   #
