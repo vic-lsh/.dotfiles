@@ -68,6 +68,12 @@ let g:lightline = {
 let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ 'folder_arrows': 0,
+    \ }
 
 " clang-format settings
 let g:clang_format#detect_style_file=1
