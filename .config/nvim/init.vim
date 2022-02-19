@@ -32,12 +32,6 @@ highlight ColorColumn ctermbg=233
 " change color of popup menu
 highlight Pmenu ctermbg=black guibg=black guifg=white ctermfg=white
 
-" configure status bar
-set laststatus=2 " always show file name
-highlight StatusLine ctermbg=black ctermfg=250 guibg=darkgrey 
-highlight StatusLineNC ctermbg=248 ctermfg=235 guibg=darkgrey 
-highlight VertSplit cterm=NONE ctermfg=250
-
 highlight Comment ctermfg=grey
 
 source $HOME/.config/nvim/plugins.vim
