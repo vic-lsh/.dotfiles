@@ -28,7 +28,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 highlight clear SignColumn
 
-highlight ColorColumn ctermbg=233 guibg=lightgrey
+highlight ColorColumn ctermbg=233
 " change color of popup menu
 highlight Pmenu ctermbg=black guibg=black guifg=white ctermfg=white
 
