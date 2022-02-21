@@ -62,7 +62,7 @@ let g:lightline = {
       \ },
       \ }
 
-" let mapleader=" "
+let mapleader=" "
 
 " filetree tweaks
 let g:netrw_browse_split=2
