@@ -143,7 +143,9 @@ set shortmess+=c
 
 " C/C++ setup
 lua <<EOF
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{
+    filetypes = { "c", "cpp", "objc", "objcpp", "cc" }
+}
 EOF
 
 " Rust setup
