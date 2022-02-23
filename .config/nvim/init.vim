@@ -118,8 +118,8 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> rn    <cmd>lua vim.lsp.buf.rename()<CR>
 
 " quickly switch between source / header file (C/C++)
-nnoremap <leader>a :A<CR>
-nnoremap <silent> <c-a> :A<CR>
+nnoremap <leader>a :ClangdSwitchSourceHeader<CR>
+nnoremap <silent> <c-a> :ClangdSwitchSourceHeader<CR>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 
