@@ -40,6 +40,7 @@ lua require('lsp_config')
 lua require('nvimtree_config')
 lua require('telescope_config')
 lua require('hrsh7th_cmp_config')
+lua require('treesitter_config')
 
 if executable('rg')
     let g:rg_derive_root='true'
