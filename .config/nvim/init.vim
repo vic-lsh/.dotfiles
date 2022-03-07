@@ -151,6 +151,11 @@ require'lspconfig'.clangd.setup{
 }
 EOF
 
+" Golang setup
+lua <<EOF
+require'lspconfig'.gopls.setup{}
+EOF
+
 " Rust setup
 lua <<EOF
 require('rust-tools').setup({})
