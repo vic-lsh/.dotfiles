@@ -31,6 +31,8 @@ highlight clear SignColumn
 highlight ColorColumn ctermbg=233
 " change color of popup menu
 highlight Pmenu ctermbg=black guibg=black guifg=white ctermfg=white
+" change color of vertical pane separator
+highlight VertSplit cterm=NONE
 
 highlight Comment ctermfg=grey
 
