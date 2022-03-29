@@ -158,7 +158,11 @@ EOF
 
 " Rust setup
 lua <<EOF
-require('rust-tools').setup({})
+require('rust-tools').setup({
+    tools = {
+        autoSetHints = false
+    }
+})
 EOF
 
 "auto-close config
