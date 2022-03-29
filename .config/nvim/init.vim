@@ -1,5 +1,4 @@
 set number
-set relativenumber
 set noerrorbells
 set belloff=all
 set tabstop=4 softtabstop=4
