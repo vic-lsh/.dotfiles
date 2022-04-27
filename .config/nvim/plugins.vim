@@ -1,8 +1,6 @@
 " list of plugins. using vimplug
 call plug#begin("~/.config/nvim/plugged")
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'       "for git blame and stuff
-Plug 'jremmen/vim-ripgrep'
 
 Plug 'dstein64/vim-startuptime'
 
