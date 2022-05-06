@@ -60,9 +60,15 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'filename': 'FilenameForLightline'
       \ },
       \ }
+
+" Show full path of filename
+function! FilenameForLightline()
+    return expand('%')
+endfunction
 
 let mapleader=" "
 
@@ -107,6 +113,9 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>gl <cmd>Telescope git_commits<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 
 " Code navigation shortcuts
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
