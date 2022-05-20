@@ -33,7 +33,7 @@ highlight Pmenu ctermbg=black guibg=black guifg=white ctermfg=white
 " change color of vertical pane separator
 highlight VertSplit cterm=NONE
 
-highlight Comment ctermfg=grey
+" highlight Comment ctermfg=grey
 
 source $HOME/.config/nvim/plugins.vim
 
@@ -178,6 +178,15 @@ lua <<EOF
 require('rust-tools').setup({
     tools = {
         autoSetHints = false
+    },
+    server = {
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                }
+            }
+        }
     }
 })
 EOF
