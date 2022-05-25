@@ -67,7 +67,7 @@ let g:lightline = {
 
 " Show full path of filename
 function! FilenameForLightline()
-    return expand('%')
+    return fnamemodify(expand("%"), ":~:.")
 endfunction
 
 let mapleader=" "
