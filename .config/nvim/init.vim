@@ -87,8 +87,6 @@ let g:nvim_tree_show_icons = {
 let g:clang_format#detect_style_file=1
 let g:clang_format#auto_format=1
 
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
-
 " ctrl-w wincmd remaps
 nnoremap <leader>h :wincmd h<CR>    
 nnoremap <leader>j :wincmd j<CR>
@@ -143,6 +141,9 @@ nnoremap <silent> <C-l> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight
 nnoremap <silent> <C-\> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>
 nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>
 
+" auto-format
+autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+
 " Ignore files (for ctrl-p, among other things)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -180,6 +181,51 @@ require('rust-tools').setup({
         autoSetHints = false
     }
 })
+EOF
+
+" Python setup
+lua <<EOF
+require'lspconfig'.pyright.setup{}
+EOF
+
+" efm-langserver setup
+" efm is a general-purposed language server.
+" https://github.com/mattn/efm-langserver
+lua << EOF
+require "lspconfig".efm.setup {
+    init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {".git/"},
+        lintDebounce = 100,
+        languages = {
+            lua = {
+                {formatCommand = "lua-format -i", formatStdin = true}
+            },
+            python = {
+                {formatCommand = "black --fast -", formatStdin = true}
+            },
+            -- borrowed from the following setup:
+            --   https://github.com/lukas-reineke/dotfiles/blob/master/vim/lua/lsp/init.lua
+            -- ["="] = { misspell },
+            -- vim = { vint },
+            -- -- lua = { stylua, luacheck },
+            -- go = { staticcheck, goimports, go_vet },
+            -- python = { black, isort, flake8, mypy },
+            -- typescript = { prettier, eslint },
+            -- javascript = { prettier, eslint },
+            -- typescriptreact = { prettier, eslint },
+            -- javascriptreact = { prettier, eslint },
+            -- yaml = { prettier },
+            -- json = { prettier },
+            -- html = { prettier },
+            -- scss = { prettier },
+            -- css = { prettier },
+            -- markdown = { prettier },
+            -- sh = { shellcheck, shfmt },
+            -- terraform = { terraform },
+        }
+    }
+}
 EOF
 
 "auto-close config
