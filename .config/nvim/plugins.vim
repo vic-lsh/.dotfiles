@@ -42,4 +42,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " tmux integration
 Plug 'alexghergh/nvim-tmux-navigation'
 
+Plug 'akinsho/toggleterm.nvim'
+
 call plug#end()
