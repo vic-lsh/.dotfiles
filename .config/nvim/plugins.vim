@@ -24,6 +24,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'         " Completion framework
 Plug 'hrsh7th/cmp-nvim-lsp'     " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-vsnip'        " Snippet completion source for nvim-cmp
+Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 " See hrsh7th's other plugins for more completion sources!
@@ -40,5 +41,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " tmux integration
 Plug 'alexghergh/nvim-tmux-navigation'
+
+Plug 'akinsho/toggleterm.nvim'
 
 call plug#end()
