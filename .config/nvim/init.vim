@@ -124,6 +124,10 @@ nnoremap <silent> <c-a> :ClangdSwitchSourceHeader<CR>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 
+" go to prev / next buffer
+nnoremap <C-p> :bp<CR>
+nnoremap <C-n> :bn<CR>
+
 " nvim-tmux-navigator configs
 nnoremap <silent> <C-h> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>
 nnoremap <silent> <C-j> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>
