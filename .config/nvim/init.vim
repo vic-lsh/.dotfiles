@@ -97,15 +97,6 @@ nnoremap <leader><Down> :wincmd j<CR>
 nnoremap <leader><Up> :wincmd k<CR>
 nnoremap <leader><Right> :wincmd l<CR>
 
-" remap for showing undo tree
-nnoremap <leader>u :UndotreeShow<CR>
-
-" remap for showing file tree on the left
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-
-" remap for quickly accessing ripgrep
-nnoremap <leader>ps :Rg<SPACE>
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
