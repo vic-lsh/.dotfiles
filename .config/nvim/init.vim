@@ -195,46 +195,6 @@ lua <<EOF
 require'lspconfig'.pyright.setup{}
 EOF
 
-" efm-langserver setup
-" efm is a general-purposed language server.
-" https://github.com/mattn/efm-langserver
-lua << EOF
-require "lspconfig".efm.setup {
-    init_options = {documentFormatting = true},
-    settings = {
-        rootMarkers = {".git/"},
-        lintDebounce = 100,
-        languages = {
-            lua = {
-                {formatCommand = "lua-format -i", formatStdin = true}
-            },
-            python = {
-                {formatCommand = "black --fast -", formatStdin = true}
-            },
-            -- borrowed from the following setup:
-            --   https://github.com/lukas-reineke/dotfiles/blob/master/vim/lua/lsp/init.lua
-            -- ["="] = { misspell },
-            -- vim = { vint },
-            -- -- lua = { stylua, luacheck },
-            -- go = { staticcheck, goimports, go_vet },
-            -- python = { black, isort, flake8, mypy },
-            -- typescript = { prettier, eslint },
-            -- javascript = { prettier, eslint },
-            -- typescriptreact = { prettier, eslint },
-            -- javascriptreact = { prettier, eslint },
-            -- yaml = { prettier },
-            -- json = { prettier },
-            -- html = { prettier },
-            -- scss = { prettier },
-            -- css = { prettier },
-            -- markdown = { prettier },
-            -- sh = { shellcheck, shfmt },
-            -- terraform = { terraform },
-        }
-    }
-}
-EOF
-
 "auto-close config
 lua <<EOF
 require('nvim-autopairs').setup{}
