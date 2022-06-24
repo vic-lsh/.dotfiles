@@ -122,7 +122,7 @@ nnoremap <silent> rn    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>a :ClangdSwitchSourceHeader<CR>
 nnoremap <silent> <c-a> :ClangdSwitchSourceHeader<CR>
 
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-g> :NvimTreeToggle<CR>
 
 " go to prev / next buffer
 nnoremap <C-p> :bp<CR>
@@ -139,8 +139,8 @@ nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateN
 nnoremap <silent> <C-t> :ToggleTerm<cr>
 
 " auto-format
-" autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting()
-autocmd BufWritePre * lua vim.lsp.buf.format { async = true }
+autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting()
+" autocmd BufWritePre * lua vim.lsp.buf.format { async = true }
 
 " Ignore files (for ctrl-p, among other things)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
