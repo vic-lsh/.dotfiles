@@ -45,8 +45,13 @@ setup_clangd() {
     cd $prevdir
 }
 
+setup_tmux() {
+    ln -s $(pwd)/.config/tmux/tmux.conf ~/.tmux.conf
+}
+
 setup_git
 setup_config_symlink
 setup_usr_bin_dir
 setup_neovim
 setup_clangd
+setup_tmux
