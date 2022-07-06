@@ -136,11 +136,10 @@ nnoremap <silent> <C-l> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight
 nnoremap <silent> <C-\> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>
 nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>
 
-nnoremap <silent> <C-t> :ToggleTerm<cr>
-
-" auto-format
-autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting()
-" autocmd BufWritePre * lua vim.lsp.buf.format { async = true }
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " Ignore files (for ctrl-p, among other things)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -200,7 +199,3 @@ lua <<EOF
 require('nvim-autopairs').setup{}
 EOF
 
-" toggle term
-lua <<EOF
-require("toggleterm").setup{}
-EOF

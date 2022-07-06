@@ -9,7 +9,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 
 " C/C++
-Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " File tree stuff
@@ -42,6 +41,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " tmux integration
 Plug 'alexghergh/nvim-tmux-navigation'
 
-Plug 'akinsho/toggleterm.nvim'
+" formatting
+Plug 'sbdchd/neoformat'
 
 call plug#end()
