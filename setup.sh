@@ -49,6 +49,21 @@ setup_tmux() {
     ln -s $(pwd)/.config/tmux/tmux.conf ~/.tmux.conf
 }
 
+install_rust() {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
+install_rust_analyzer() {
+    mkdir -p ~/.local/bin
+    curl -L https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+    chmod +x ~/.local/bin/rust-analyzer
+    rustup component add rust-src
+}
+
+setup_rust() {
+    install_rust && install_rust_analyzer
+}
+
 patch_sh_profile() {
     echo "source ~/.bashrc" >> ~/.bash_profile
 }
@@ -59,4 +74,5 @@ setup_usr_bin_dir
 setup_neovim
 setup_clangd
 setup_tmux
+setup_rust
 patch_sh_profile
