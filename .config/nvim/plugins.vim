@@ -39,6 +39,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " More syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Formatting
+Plug 'sbdchd/neoformat'
+
 " tmux integration
 Plug 'alexghergh/nvim-tmux-navigation'
 
