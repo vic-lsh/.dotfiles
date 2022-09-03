@@ -201,7 +201,3 @@ lua <<EOF
 require('nvim-autopairs').setup{}
 EOF
 
-" toggle term
-lua <<EOF
-require("toggleterm").setup{}
-EOF
