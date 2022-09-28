@@ -37,6 +37,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " More syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tree-sitter/tree-sitter-rust'
 
 " Formatting
 Plug 'sbdchd/neoformat'
