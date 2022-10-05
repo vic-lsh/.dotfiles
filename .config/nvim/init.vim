@@ -178,7 +178,9 @@ EOF
 lua <<EOF
 require('rust-tools').setup({
     tools = {
-        autoSetHints = false
+        inlay_hints = {
+            auto = false,
+        },
     },
     server = {
         settings = {
