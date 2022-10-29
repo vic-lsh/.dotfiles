@@ -137,8 +137,6 @@ nnoremap <silent> <C-l> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight
 nnoremap <silent> <C-\> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>
 nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>
 
-nnoremap <silent> <C-t> :ToggleTerm<cr>
-
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
