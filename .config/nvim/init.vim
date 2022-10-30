@@ -118,6 +118,7 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> rn    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> ca    <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " quickly switch between source / header file (C/C++)
 nnoremap <leader>a :ClangdSwitchSourceHeader<CR>
