@@ -3,6 +3,10 @@ vim.cmd([[
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 ]])
 
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- setup with all defaults
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 -- nested options are documented by accessing them with `.` (eg: `:help nvim-tree.view.mappings.list`).
@@ -169,3 +173,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     },
   },
 } -- END_DEFAULT_OPTS
+
+local nvim_tree = require('nvim-tree.api')
+vim.keymap.set('n', '<C-g>', nvim_tree.tree.toggle, {})
+
