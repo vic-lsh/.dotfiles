@@ -20,6 +20,13 @@ return require('packer').startup(function(use)
   use('kyazdani42/nvim-tree.lua')
 
   use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
+
+  use('sbdchd/neoformat')
+
+  use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
 		  -- LSP Support
