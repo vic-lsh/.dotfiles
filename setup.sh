@@ -13,9 +13,9 @@ setup_usr_bin_dir() {
     mkdir -p ~/bin
 }
 
-setup_vimplug() {
-    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-	           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+setup_packer() {
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+		~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
 setup_neovim() {
@@ -27,7 +27,7 @@ setup_neovim() {
     mv ./nvim-linux64 ~/bin/nvim-linux64
     echo "PATH=$PATH:~/bin/nvim-linux64/bin" >> ~/.bash_profile
     . ~/.bash_profile
-    setup_vimplug
+    setup_packer
     cd $prevdir
 }
 
