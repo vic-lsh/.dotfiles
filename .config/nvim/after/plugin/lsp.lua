@@ -6,6 +6,9 @@ lsp.ensure_installed({
   'tsserver',
   'sumneko_lua',
   'rust_analyzer',
+  'clangd',
+  'omnisharp',
+  'gopls'
 })
 
 local cmp = require('cmp')
