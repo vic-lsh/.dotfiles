@@ -50,6 +50,12 @@ lsp.configure('rust_analyzer', {
     }
 })
 
+lsp.setup_servers({
+    'tsserver',
+    -- .....
+})
+
+
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
