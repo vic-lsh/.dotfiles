@@ -40,6 +40,8 @@ return require('lazy').setup({
 
   'sbdchd/neoformat',
 
+  'github/copilot.vim',
+
   {
       'VonHeikemen/lsp-zero.nvim',
       dependencies = {
