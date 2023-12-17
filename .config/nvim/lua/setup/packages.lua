@@ -32,11 +32,7 @@ return require('lazy').setup({
   -- -- use('kyazdani42/nvim-web-devicons')
   'kyazdani42/nvim-tree.lua',
 
-  -- might keep this, but don't install for now
-  -- use {
-  --     "windwp/nvim-autopairs",
-  --     config = function() require("nvim-autopairs").setup {} end
-  -- }
+  'windwp/nvim-autopairs',
 
   'sbdchd/neoformat',
 
