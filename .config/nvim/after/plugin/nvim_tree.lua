@@ -50,22 +50,16 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 --   update_cwd = false,
 --   reload_on_bufenter = false,
 --   respect_buf_cwd = false,
---   view = {
---     adaptive_size = false,
---     width = 30,
---     hide_root_folder = false,
---     side = "left",
---     preserve_window_proportions = false,
---     number = false,
---     relativenumber = false,
---     signcolumn = "yes",
---     mappings = {
---       custom_only = false,
---       list = {
---         -- user mappings go here
---       },
---     },
---   },
+   view = {
+     adaptive_size = true,
+     width = 30,
+     -- hide_root_folder = false,
+     side = "right",
+     -- preserve_window_proportions = false,
+     -- number = false,
+     -- relativenumber = false,
+     -- signcolumn = "yes",
+   },
 --   -- renderer = {
 --   --   add_trailing = false,
 --   --   group_empty = false,
