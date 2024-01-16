@@ -23,7 +23,20 @@ return require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  {
+      "nvim-treesitter/nvim-treesitter", 
+      build = ":TSUpdate",
+      config = function () 
+        local configs = require("nvim-treesitter.configs")
+
+        configs.setup({
+            -- ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+            sync_install = false,
+            highlight = { enable = true },
+            indent = { enable = true },  
+          })
+      end
+  },
 
   'alexghergh/nvim-tmux-navigation',
   'itchyny/lightline.vim',
@@ -66,8 +79,24 @@ return require('lazy').setup({
     	  'hrsh7th/cmp-nvim-lua',
 
     	  -- Snippets
-    	  'L3MON4D3/LuaSnip',
+    	  -- 'L3MON4D3/LuaSnip',
     	  'rafamadriz/friendly-snippets',
       }
   },
+
+  -- additional go support (lsp-zero's go lsp is broken)
+  {
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  }
 })
