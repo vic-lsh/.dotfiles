@@ -36,6 +36,17 @@ return require('lazy').setup({
 
   'sbdchd/neoformat',
 
+  -- theme
+  'morhetz/gruvbox',
+
+  {
+      'numToStr/Comment.nvim',
+      opts = {
+          -- add any options here
+      },
+      lazy = false,
+  },
+
   'github/copilot.vim',
 
   {
