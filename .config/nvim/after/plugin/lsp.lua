@@ -2,10 +2,10 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-  'rust_analyzer',
-  'clangd',
-})
+-- lsp.ensure_installed({
+--   'rust_analyzer',
+--   'clangd',
+-- })
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -21,8 +21,20 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+-- lsp.setup_nvim_cmp({
+--   mapping = cmp_mappings
+-- })
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  -- Replace the language servers listed here 
+  -- with the ones you want to install
+  ensure_installed = {'rust_analyzer', 'clangd'},
+  handlers = {
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
+  },
 })
 
 lsp.set_preferences({
