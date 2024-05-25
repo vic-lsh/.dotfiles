@@ -3,22 +3,6 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<cr>'] = cmp.mapping.confirm({ select = false }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
--- disable completion with tab
--- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
--- lsp.setup_nvim_cmp({
---   mapping = cmp_mappings
--- })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -87,7 +71,22 @@ lsp.format_on_save({
   servers = {
     ['tsserver'] = {'javascript', 'typescript'},
     ['rust_analyzer'] = {'rust'},
+    -- lua 
+    ['lua-language-server'] = {'lua'},
   }
 })
 
-lsp.setup()
+lsp.setup({
+    sources = {
+    {name = 'nvim_lsp'},
+  },
+  -- for some reason this is not working
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({select = true}),
+  }),
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+})
