@@ -74,6 +74,7 @@ lsp.format_on_save({
     -- lua 
     ['lua-language-server'] = {'lua'},
     ['clangd'] = {'c', 'c++'},
+    ['verible'] = {'verilog', 'systemverilog'},
   }
 })
 
