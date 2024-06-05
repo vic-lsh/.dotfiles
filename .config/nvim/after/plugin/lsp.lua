@@ -73,6 +73,7 @@ lsp.format_on_save({
     ['rust_analyzer'] = {'rust'},
     -- lua 
     ['lua-language-server'] = {'lua'},
+    ['clangd'] = {'c', 'c++'},
   }
 })
 
