@@ -64,17 +64,18 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- it's hard to make lsp-zero use prettier to format JS code
+-- so we will use neoformat to format JS code (and basically all other file types).
+-- the only file type that we will use lsp-zero to format is verilog.
 lsp.format_on_save({
   format_opts = {
     async = false,
     timeout_ms = 10000,
   },
   servers = {
-    ['tsserver'] = {'javascript', 'typescript'},
-    ['rust_analyzer'] = {'rust'},
-    -- lua 
-    ['lua-language-server'] = {'lua'},
-    ['clangd'] = {'c', 'c++'},
+    -- ['rust_analyzer'] = {'rust'},
+    -- ['lua-language-server'] = {'lua'},
+    -- ['clangd'] = {'c', 'c++'},
     ['verible'] = {'verilog', 'systemverilog'},
   }
 })
