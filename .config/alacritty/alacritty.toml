@@ -5,16 +5,17 @@ draw_bold_text_with_bright_colors = true
 size = 13.0
 
 [font.bold]
-family = "Menlo"
+family = "JetBrains Mono"
 style = "Regular"
 
 [window]
+#decorations = "Transparent"
 decorations = "buttonless"
 opacity = 0.82
 blur = true
 startup_mode = "Maximized"
 
 [window.padding]
-x = 5
-y = 5
+x = 15
+y = 16
  
