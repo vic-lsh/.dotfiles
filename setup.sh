@@ -66,15 +66,17 @@ setup_rust() {
     install_rust && install_rust_analyzer
 }
 
-patch_sh_profile() {
-    echo "source ~/.bashrc" >> ~/.bash_profile
+patch_bash_profile() {
+    echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" >> ~/.bash_profile
 }
 
 setup_git
 setup_config_symlink
+patch_bash_profile
 setup_usr_bin_dir
 setup_neovim
 setup_clangd
 setup_tmux
 setup_rust
-patch_sh_profile
+
+source ~/.bash_profile
