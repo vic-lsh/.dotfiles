@@ -1,5 +1,27 @@
 #!/bin/sh
 
+# Global variables to count function calls and successes
+TOTAL_FUNCTIONS_CALLED=0
+TOTAL_FUNCTIONS_SUCCEEDED=0
+
+# Higher-order function to call a setup function and handle errors
+invoke_setup_fn() {
+  local func=$1
+
+  $func
+  local status=$?
+
+   ((TOTAL_FUNCTIONS_CALLED++))
+
+  if [ $status -ne 0 ]; then
+    echo "********* ERROR:   bash function '$func' exited with status $status *********"
+  else
+    echo "********* SUCCESS: bash function '$func' succeeded                  *********"
+    ((TOTAL_FUNCTIONS_SUCCEEDED++))
+  fi
+}
+
+
 setup_git() {
     git config --global user.name vic-shihang-li
     git config --global user.email 40274755+vic-shihang-li@users.noreply.github.com
@@ -70,13 +92,15 @@ patch_bash_profile() {
     echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" >> ~/.bash_profile
 }
 
-setup_git
-setup_config_symlink
-patch_bash_profile
-setup_usr_bin_dir
-setup_neovim
-setup_clangd
-setup_tmux
-setup_rust
+invoke_setup_fn setup_git
+invoke_setup_fn setup_config_symlink
+invoke_setup_fn patch_bash_profile
+invoke_setup_fn setup_usr_bin_dir
+invoke_setup_fn setup_neovim
+invoke_setup_fn setup_clangd
+invoke_setup_fn setup_tmux
+invoke_setup_fn setup_rust
 
 source ~/.bash_profile
+
+echo "Setup complete! [$TOTAL_FUNCTIONS_SUCCEEDED / $TOTAL_FUNCTIONS_CALLED] setup steps were successful."
