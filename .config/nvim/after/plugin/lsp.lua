@@ -1,6 +1,6 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
+-- lsp.preset("recommended")
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
@@ -17,15 +17,11 @@ require('mason-lspconfig').setup({
   },
 })
 
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    set_lsp_keymaps = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+lsp.set_sign_icons({
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
 })
 
 vim.diagnostic.config({
