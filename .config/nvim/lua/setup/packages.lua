@@ -45,8 +45,8 @@ return require('lazy').setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 
-  -- -- use('kyazdani42/nvim-web-devicons')
   'kyazdani42/nvim-tree.lua',
+  'kyazdani42/nvim-web-devicons',
 
   'windwp/nvim-autopairs',
 
