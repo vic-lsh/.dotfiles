@@ -37,3 +37,12 @@ vim.g.mapleader = " "
 vim.opt.ignorecase = true
 -- case-sensitive when /ContainsUppercase
 vim.opt.smartcase = true
+
+vim.cmd([[
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+]])
