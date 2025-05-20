@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Global variables to count function calls and successes
 TOTAL_FUNCTIONS_CALLED=0
