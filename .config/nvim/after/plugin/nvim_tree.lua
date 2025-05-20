@@ -139,11 +139,11 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 --     custom = {},
 --     exclude = {},
 --   },
---   git = {
---     enable = true,
---     ignore = true,
---     timeout = 400,
---   },
+   git = {
+     enable = true,
+     ignore = false,
+     timeout = 400,
+   },
 --   actions = {
 --     use_system_clipboard = true,
 --     change_dir = {
