@@ -41,7 +41,7 @@ setup_packer() {
 }
 
 setup_neovim() {
-    NEOVIM_RELEASE=https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+    NEOVIM_RELEASE=https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
     prevdir=$(pwd)
     cd /tmp
     wget $NEOVIM_RELEASE
