@@ -1,6 +1,6 @@
-vim.cmd [[
-augroup fmt
-  autocmd!
-  au BufWritePre * if get(g:, 'neoformat_enabled', 1) | try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry | endif
-augroup END
-]]
+-- vim.cmd [[
+-- augroup fmt
+--   autocmd!
+--   au BufWritePre * if get(g:, 'neoformat_enabled', 1) | try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry | endif
+-- augroup END
+-- ]]

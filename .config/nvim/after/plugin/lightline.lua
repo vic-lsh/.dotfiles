@@ -19,7 +19,7 @@
 
 vim.cmd [[
 let g:lightline = {
-      \ 'colorscheme': 'catppuccin',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -35,3 +35,22 @@ function! FilenameForLightline()
     return fnamemodify(expand("%"), ":~:.")
 endfunction
 ]]
+--
+-- vim.cmd [[
+-- let g:lightline = {
+--       \ 'colorscheme': 'PaperColor',
+--       \ 'active': {
+--       \   'left': [ [ 'mode', 'paste' ],
+--       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+--       \ },
+--       \ 'component_function': {
+--       \   'gitbranch': 'FugitiveHead',
+--       \   'filename': 'FilenameForLightline'
+--       \ },
+--       \ }
+-- 
+-- " Show full path of filename
+-- function! FilenameForLightline()
+--     return fnamemodify(expand("%"), ":~:.")
+-- endfunction
+-- ]]
