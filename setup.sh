@@ -45,7 +45,7 @@ setup_neovim() {
     prevdir=$(pwd)
     cd /tmp
     wget $NEOVIM_RELEASE
-    tar xzvf nvim-linux64.tar.gz
+    tar xzvf nvim-linux-x86_64.tar.gz
     mv ./nvim-linux64 ~/bin/nvim-linux64
     echo "PATH=$PATH:~/bin/nvim-linux64/bin" >> ~/.bash_profile
     . ~/.bash_profile
@@ -71,6 +71,12 @@ setup_tmux() {
     ln -s $(pwd)/.config/tmux/tmux.conf ~/.tmux.conf
 }
 
+setup_claude() {
+    mkdir -p ~/.claude
+    ln -sf $(pwd)/.claude/settings.json ~/.claude/settings.json
+    ln -sf $(pwd)/.claude/statusline.sh ~/.claude/statusline.sh
+}
+
 install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     . "$HOME/.cargo/env"
@@ -92,14 +98,15 @@ patch_bash_profile() {
     echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" >> ~/.bash_profile
 }
 
-invoke_setup_fn setup_git
-invoke_setup_fn setup_config_symlink
-invoke_setup_fn patch_bash_profile
-invoke_setup_fn setup_usr_bin_dir
+# invoke_setup_fn setup_git
+# invoke_setup_fn setup_config_symlink
+# invoke_setup_fn patch_bash_profile
+# invoke_setup_fn setup_usr_bin_dir
 invoke_setup_fn setup_neovim
 invoke_setup_fn setup_clangd
-invoke_setup_fn setup_tmux
-invoke_setup_fn setup_rust
+# invoke_setup_fn setup_tmux
+# invoke_setup_fn setup_rust
+# invoke_setup_fn setup_claude
 
 source ~/.bash_profile
 

@@ -1,0 +1,8 @@
+# Ignore everything by default
+*
+
+# Un-ignore tracked config files
+!.gitignore
+!settings.json
+!statusline.sh
+!CLAUDE.md
