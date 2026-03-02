@@ -106,7 +106,7 @@ invoke_setup_fn setup_neovim
 invoke_setup_fn setup_clangd
 # invoke_setup_fn setup_tmux
 # invoke_setup_fn setup_rust
-# invoke_setup_fn setup_claude
+invoke_setup_fn setup_claude
 
 source ~/.bash_profile
 
