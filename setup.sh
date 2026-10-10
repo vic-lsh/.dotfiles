@@ -94,6 +94,10 @@ setup_rust() {
     install_rust && install_rust_analyzer
 }
 
+setup_agent_skills() {
+    ./scripts/setup-agent-skills.sh
+}
+
 patch_bash_profile() {
     echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" >> ~/.bash_profile
 }
@@ -107,6 +111,7 @@ invoke_setup_fn setup_clangd
 # invoke_setup_fn setup_tmux
 # invoke_setup_fn setup_rust
 invoke_setup_fn setup_claude
+invoke_setup_fn setup_agent_skills
 
 source ~/.bash_profile
 
