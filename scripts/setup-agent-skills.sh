@@ -3,8 +3,9 @@
 #   ~/.agent-skills          public skills  (github.com/vic-lsh/agent-skills)
 #   ~/.agent-skills-private  private skills and per-project skill state, if this
 #                            machine can read the private repo
-# Each skill is symlinked into ~/.claude/skills and ~/.codex/skills, and
-# ~/.agent-state points at the private repo's state/ folder.
+# Each skill is symlinked into ~/.claude/skills and ~/.codex/skills,
+# ~/.agent-state points at the private repo's state/ folder, and cron runs
+# sync-agent-skills.sh hourly.
 set -euo pipefail
 
 PUBLIC_REPO=git@github.com:vic-lsh/agent-skills.git
@@ -25,6 +26,8 @@ clone_or_pull "$PUBLIC_REPO" ~/.agent-skills
 git -C ~/.agent-skills config core.hooksPath .githooks
 if git ls-remote "$PRIVATE_REPO" &>/dev/null; then
     clone_or_pull "$PRIVATE_REPO" ~/.agent-skills-private
+    # Pre-commit lint: no absolute paths in shared state, skills within limits
+    git -C ~/.agent-skills-private config core.hooksPath .githooks
 else
     echo "private skills repo not reachable; installing public skills only"
 fi
@@ -50,4 +53,15 @@ if [ -d ~/.agent-skills-private/state ]; then
         ln -sfn ~/.agent-skills-private/state ~/.agent-state
     fi
 fi
+# Hourly sync with GitHub (see sync-agent-skills.sh); replaces any older entry
+SYNC="$(cd "$(dirname "$0")" && pwd)/sync-agent-skills.sh"
+CRON_LINE="17 * * * * $SYNC >> \$HOME/.agent-sync.log 2>&1"
+if command -v crontab >/dev/null; then
+    { crontab -l 2>/dev/null | grep -v 'sync-agent-skills.sh' || true; echo "$CRON_LINE"; } | crontab -
+else
+    echo "crontab not found; run $SYNC by hand or from another scheduler"
+fi
+
+host_file=~/.agent-state/hosts/$(hostname -s).md
+[ -e "$host_file" ] || echo "note: no $host_file yet; the first skill run on this machine creates it"
 echo "agent skills installed"
