@@ -21,6 +21,8 @@ clone_or_pull() {
 }
 
 clone_or_pull "$PUBLIC_REPO" ~/.agent-skills
+# Pre-push lint: blocks oversized skills and private details in public skills
+git -C ~/.agent-skills config core.hooksPath .githooks
 if git ls-remote "$PRIVATE_REPO" &>/dev/null; then
     clone_or_pull "$PRIVATE_REPO" ~/.agent-skills-private
 else
